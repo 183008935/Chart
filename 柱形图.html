@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>柱形图</title>
+	<script type="text/javascript" src="js/highcharts.js"></script>
+	<script type="text/javascript" src="js/mock.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+<style type="text/css">
+	div{
+		width: 900px;
+		height: 400px;
+		margin: auto auto;
+	}
+</style>
+<body>
+	<button id="btn">点击获取图表数据</button>
+	<div id="div2"></div>
+
+</body>
+<script type="text/javascript">
+	$('#btn').click(function() {
+		$.ajax({
+			type:"get",
+			url:"mock",
+			dataType: "json",
+			success:function(data){
+				var data=data.data;
+				var beijing=[];
+				var handan=[];
+				var hangzhou=[];
+				$.each(data,function(index,val){
+					   beijing.push(val.beijing);
+					   handan.push(val.handan);
+					   hangzhou.push(val.hangzhou);
+					   
+				})
+				// for(var i=0;i<data.length;i++){
+				// 	fruits_num.push(data[i].num);
+				// 	handan.push(data[i].handan); 	
+				// } 
+				
+				var json=Highcharts.chart('div2',{
+					chart:{
+						type:'column'
+					},
+					title:{
+						text:'水果产量平均图-柱形图'
+					},
+					subtitle:{
+						text:'数据来源:mock.js'
+					},
+					xAxis:{
+						categories:['苹果','香蕉','橙子','西瓜','火龙果']
+					},
+					yAxis:{
+						title:{
+							text:'水平产量'
+						}
+					},
+					series:[
+					{
+						name:'北京',
+						data:beijing
+					},
+					{
+						name:'邯郸',
+						data:handan
+					},
+					{
+						name:'杭州',
+						data:hangzhou
+					},
+					]
+				});
+			}
+		});
+	});
+</script>
+</html>

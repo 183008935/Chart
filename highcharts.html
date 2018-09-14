@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Highcharts</title>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 700px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+$(document).ready(function() {  
+   var chart = {
+      type: 'column'
+      //pie 饼图；
+      //line：直线图，
+// spline：曲线图，
+// area：面积图，
+// areaspline：曲线面积图，
+// arearange：面积范围图，这个不能用！
+// areasplinerange：曲线面积范围图，这个不能用！
+// column：柱状图，
+// columnrange：柱状范围图，这个不能用！
+// bar：条形图， 这个比较好用。
+// pie：饼图，这个不明白。
+// scatter：散点图，
+// boxplot：箱线图，这个不能用！
+// bubble：气泡图，这个不能用！
+// errorbar：误差线图，这个不能用！
+// funnel：漏斗图，这个不能用！
+// gauge：仪表图，这个不能用！
+// waterfall：瀑布图，这个不能用！
+// polar：雷达图，这个不能用！
+// pyramid：金字塔，这个不能用！
+   };
+   var title = {
+      text: '每月平均降雨量'   
+   };
+   var subtitle = {
+      // text: 'Source: runoob.com'  
+       text: '来源:田家豪官方！！！'
+   };
+   var xAxis = {
+      categories: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+      crosshair: true
+   };
+   var yAxis = {
+      min: 0,
+      title: {
+         // text: 'Rainfall (mm)'   
+            text: '降 雨 量 (mm)'      
+      }      
+   };
+   var tooltip = {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+         '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+   };
+   var plotOptions = {//管理降雨量的样式
+      column: {
+         pointPadding: 0.2,
+         borderWidth: 0
+      }
+   };  
+
+   var credits = {
+      enabled: true
+   };
+   
+   var series= [{
+        name: '北京',
+            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        }
+   //      , {
+   //          name: '上海',
+   //          data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+   //      }, {
+   //          name: '邯郸',
+   //          data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+   //      }, {
+   //          name: '秦皇岛',
+   //          data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+   // }
+    ];     
+      
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;   
+   json.subtitle = subtitle; 
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;  
+   json.credits = credits;
+   $('#container').highcharts(json);
+  
+});
+</script>
+</body>
+</html>

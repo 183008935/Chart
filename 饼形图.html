@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <title>饼形图</title>
+</head>
+<body>
+    <div id="div1" style="min-width:400px;height:400px"></div>
+</body>
+<script>
+
+var json={
+	chart: {
+		type: 'pie' //饼图类型
+	},
+	title: { // 标题
+		text: '2018年各个浏览器访问量占比'
+	},
+	tooltip: { // 提示框
+		pointFormat:'{series.name}:<b>{point.percentage:.1f}%</b>'//官方只给了鼠标放上去的百分比，
+    },
+    plotOptions: { //设置图表；
+		pie: {  // 饼图
+			allowPointSelect: true,// 选中数据；
+			showInLegend: true   //显示图列
+		}
+	},
+	  credits:{ // 版权信息  可以设置没有。
+       enabled:false 
+      },
+	series: [{ // 数据列
+		name: '浏览器访问量占比',
+		data: [
+		        ['Chrome',   45.0],
+				['IE',       26.8],
+				{
+					name: 'Firefox',
+					y: 12.8,
+					sliced: true,
+					selected: true
+				},
+				['Safari',    8.5],
+				['Opera',     6.2],
+				['其他',   0.7]
+			]
+		
+        
+    }],   
+}
+
+Highcharts.chart('div1', json);
+</script>
+</html>

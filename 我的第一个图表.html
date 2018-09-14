@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Highcharts</title>
+	<script type="text/javascript" src="js/highcharts.js">
+//引入 Highcharts
+//Highcharts 最基本的运行只需要一个 JS 文件，即 highcharts.js，以使用 CDN 文件为例，对应的代码是：
+</script>
+</head>
+
+<body>
+	<div id="div1" ></div>
+	<script type="text/javascript">
+		//然后通过 Highcharts 的初始化函数 Highcharts.chart 来创建图表，该函数接受两个参数，第一个参数是 DOM 容器的 Id，第二个参数是图表配置，代码如下：
+		
+		var json = {
+			 //pie 饼图；
+      //line：直线图，
+// spline：曲线图，
+// area：面积图，
+// areaspline：曲线面积图，
+// arearange：面积范围图，这个不能用！
+// areasplinerange：曲线面积范围图，这个不能用！
+// column：柱状图，
+// columnrange：柱状范围图，这个不能用！
+// bar：条形图， 这个比较好用。
+// pie：饼图，这个不明白。
+// scatter：散点图，
+// boxplot：箱线图，这个不能用！
+// bubble：气泡图，这个不能用！
+// errorbar：误差线图，这个不能用！
+// funnel：漏斗图，这个不能用！
+// gauge：仪表图，这个不能用！
+// waterfall：瀑布图，这个不能用！
+// polar：雷达图，这个不能用！
+// pyramid：金字塔，这个不能用！
+			chart :{
+				type:'line'
+			},
+			title: {
+				text:'我的第一个图形表'
+			},
+			subtitle:{
+				text:'副标题'
+			},
+			xAxis: {
+				categories:['苹果','香蕉','橙子']
+			},
+			yAxis: {
+				title:{
+					text:'吃水果的个数'
+				}
+			},
+			 // legend:{ //（地图或书中图表的）图例，说明，解释
+    //               layout:'vertical',  //垂直布局
+    //               align:'right', //在右边
+    //               verticalAlign:'middle',//中间
+    //         },
+			series:[
+                       {
+                       	
+                       	name:'田家豪',
+                       	data:[1,2,3]     },
+                       	{
+                       	 
+                       		name:'林颖',
+                       		data:[4,5,6]
+                       	},
+                       	{
+                       	
+                       		name:'小阳',
+                       		data:[5,3,8]
+                       	}
+			]
+		};
+		 var chart=Highcharts.chart('div1',json);
+	</script>
+</body>
+</html>

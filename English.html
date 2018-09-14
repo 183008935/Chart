@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/highcharts.js"></script>
+    <style>
+        #div1{
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        $(function(){
+
+             //为图表配置标题：
+            var title = {
+                text:'月平均气温'
+            };
+
+            //为图表配置副标题：
+            var subtitle={
+                text:'Source:runoob.com'
+            };
+            xAxis={//x轴线  //配置要在 X 轴显示的项。
+                categories:['一月','二月','三月','四月','五月', '六月','七月','八月','九月','十月','十一月','十二月']//分类 里面分别放上月份;
+            };
+            yAxis = {//Y轴线  //配置要在 Y 轴显示的项。
+
+                title:{//y轴 标题
+                    text:'温控仪表(\xB0c)'
+                },
+               
+                plotLines:[//plptLines 分界线的意思
+                    {
+                        value:0,//分界线的值
+                        width:2,
+                        color:'#808080'
+                    }
+                ]
+            };
+
+            //配置提示信息：
+            var tooltip ={  //提示信息  
+                valueSuffix:'\xB0c' //加后缀
+            };
+
+
+            //配置图表 的说明 解释 向右对齐：
+            var legend = { //（地图或书中图表的）图例，说明，解释
+                  layout:'vertical',  //垂直布局
+                  align:'right', //在右边
+                  verticalAlign:'middle',//中间
+                  borderWidth:0 //边框的宽度
+            };
+
+             //配置图表要展示的数据。每个系列是个数组，每一项在图片中都会生成一条曲线。--数据
+            var series =[ {  //函数曲线 
+                    name:'邯郸',
+                    data:[1,2,3,4,5,6,7,8,9,-10,-11,12]
+            },
+            ]
+        var json={};
+        json.title=title;
+        json.subtitle=subtitle;
+        json.xAxis=xAxis;
+        json.yAxis=yAxis;
+        json.tooltip=tooltip;
+        json.legend=legend;
+        json.series=series;
+        $('#div1').highcharts(json);
+        });
+   
+    </script>
+</body>
+</html>

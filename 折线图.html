@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>线性图</title>
+	<script type="text/javascript" src="js/highcharts.js"></script>
+</head>
+<style type="text/css">
+  div{
+  	width: 900px;
+  	height: 400px;
+    margin: auto auto;
+	
+  }
+
+
+</style>
+<body>
+	<div id="div1"></div><br>
+	
+
+</body>
+<script type="text/javascript">
+  var chart=Highcharts.chart('div1',{
+  	chart:{
+          type:'line'
+  	},
+  	title:{ 	
+  		text:'各大城市1-6月气温表-线性图'
+  	},
+  	xAxis:{
+  		categories:['一月','二月','三月','四月','五月','六月']
+  	},
+  	yAxis:{
+  		title:{
+  			text:'温度列表(\xB0c)'
+  		}
+  	},
+  	// legend:{
+  	// 	layout:'vertical',
+  	// 	align:'right',
+  	// 	verticalAlign:'middle'
+  	// },
+  	tooltip:{
+	  valueSuffix: '\xB0C'
+      },
+  	series:[
+  	{
+  		name:'北京',
+  		data:[1,2,3,4,5,6]
+  	},
+  	{
+  		name:'秦皇岛',
+  		data:[2,4,6,7,8,9]
+  	}
+
+
+  	]
+  });
+
+</script>
+</html>
